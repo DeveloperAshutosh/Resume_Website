@@ -31,3 +31,84 @@
         }
     }
 }
+// Menu Overlay
+.menu{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.85;
+    visibility: hidden;
+    &.show{
+        visibility: visible;
+    }
+    .menu-branding,
+    .menu-nav{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .menu-nav{
+        margin: 0;
+        padding: 0;
+        background: darken($primary-color, 5);
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        @include transist;
+        &.show{
+            transform: translate3d(0, 0, 0);
+        }
+
+    }
+    .menu-branding{
+        background: $primary-color;
+        transform: translate3d(0, 100%, 0);
+        @include transist;
+        &.show{
+            transform: translate3d(0, 0, 0);
+        }
+        .protrait{
+            width: 250px;
+            height: 250px;
+            background: url(../img/portrait.png);
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+            
+            background-size: cover;
+
+        }
+    }
+    .nav-item{
+        transform: translate3d(600px,0,0);
+        @include transist;
+        &.show{
+            transform: translate3d(0, 0, 0);
+        }
+        &.current > a {
+            color: $secondary-color;
+        }
+    }
+    .nav-link{
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: #fff;
+        @include transist;
+        
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+}
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}){
+        transition-delay: $x * 0.1s;
+    }
+}

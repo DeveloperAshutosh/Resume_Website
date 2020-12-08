@@ -3,6 +3,10 @@
   .projects {
     grid-template-columns: repeat(4, 1fr);
   }
+  label{
+    font-size: 20px;
+    margin-left: 12px;
+}
 }
 
 // Desktops & Laptops
@@ -10,6 +14,10 @@
   .projects {
     grid-template-columns: repeat(3, 1fr);
   }
+  label{
+    font-size: 20px;
+    margin-left: 12px;
+}
 }
 
 // Tablets & Small Laptops
